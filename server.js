@@ -18,17 +18,20 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Middleware
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://digitalvarad.onrender.com"
-  ]
-}));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// Static files
-app.use(express.static("client/dist"));
+app.get("/", (req, res) => {
+  res.send("DigitalVarad API Running 🚀");
+});
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://digitalvarad.vercel.app"
+  ],
+  credentials: true
+}));
 
 // Database Init (Don't crash server)
 initDatabase().catch((err) => {
@@ -45,11 +48,6 @@ app.get("/api/health", (req, res) => {
     status: "running",
     time: new Date(),
   });
-});
-
-// React catch all
-app.get("*", (req, res) => {
-  res.sendFile(join(process.cwd(), "client/dist/index.html"));
 });
 
 // Start server

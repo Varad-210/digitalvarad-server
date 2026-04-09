@@ -17,14 +17,7 @@ const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Middleware
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-  res.send("DigitalVarad API Running 🚀");
-});
-
+// CORS Middleware (must be first)
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -32,6 +25,15 @@ app.use(cors({
   ],
   credentials: true
 }));
+
+// Middleware
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true }));
+
+// Root endpoint
+app.get("/", (req, res) => {
+  res.send("DigitalVarad API Running 🚀");
+});
 
 // Database Init (Don't crash server)
 initDatabase().catch((err) => {

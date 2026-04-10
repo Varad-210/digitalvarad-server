@@ -21,7 +21,8 @@ const __dirname = dirname(__filename);
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://digitalvarad-server.onrender.com"
+    "http://localhost:3000",
+    "https://digitalvarad.vercel.app"
   ],
   credentials: true
 }));

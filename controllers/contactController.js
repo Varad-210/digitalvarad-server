@@ -216,7 +216,7 @@ const sendConfirmationEmail = async (name, email) => {
           </p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://digitalvarad.vercel.app/products" style="display: inline-block; background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+            <a href="https://digitalvarad.vercel.app/" style="display: inline-block; background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
               Explore Our Courses
             </a>
           </div>
